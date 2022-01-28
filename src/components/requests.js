@@ -1,6 +1,8 @@
 import React from "react";
 
+
 function Requests(props){
+    
     return <div>
         <h1>Requests from API</h1>
         {props.requests.map((request) => {

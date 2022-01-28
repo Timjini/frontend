@@ -1,7 +1,9 @@
 import './App.css';
 import axios from "axios";
 import Requests from './components/requests';
+import {Routes,Route} from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import Home from './components/Home';
 
 const API_URL ="https://mighty-tor-35081.herokuapp.com/api/v1/requests";
 
@@ -23,10 +25,13 @@ function App() {
 }, []);
 
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <>
+      
+      <Routes>
+           <Route path='/' element={<Home />} />
+      </Routes>
       <Requests requests={requests} />
-    </div>
+      </>
   );
 }
 
