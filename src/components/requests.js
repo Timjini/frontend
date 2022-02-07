@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default class Request extends React.Component {
+export default class Requests extends React.Component {
   state = {
     requests: []
   }
