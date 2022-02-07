@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Select from "react-select";
+
 
 class RequestEdit extends Component {
 
@@ -9,7 +11,7 @@ class RequestEdit extends Component {
     this.state = {
         description: '',
         address: '',
-        category: parseInt(),
+        category: [{value: 0 , lable: 'This is lable 1'}, {value: 1 , lable: 'this is lable two'}],
         status: parseInt(),
         latitude: parseFloat(),
         longitude: parseFloat(),
@@ -34,15 +36,15 @@ class RequestEdit extends Component {
   render() {
     const { description, address, category, status } = this.state;
     return (
-      <div className="container">
+      <div className="container ">
        <div className="panel panel-default">
          <div className="panel-heading">
             <h3 className="panel-title">
-              Send Message
+              New Request
             </h3>
           </div>
           <div className="panel-body">
-            <h4><Link to="/"><span className="glyphicon glyphicon-th-list" aria-hidden="true"></span> Message List</Link></h4>
+            <h4><Link to="/requests"><span className="glyphicon glyphicon-th-list" aria-hidden="true"></span> All Requests</Link></h4>
             <form onSubmit={this.submitHandler}>
              <div className="form-group">
                <label htmlFor="name">description:</label>
@@ -56,16 +58,9 @@ class RequestEdit extends Component {
           <div className="form-group">
           <label>
           Category:
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value={category}>One time </option>
-            <option value={category}>Material </option>
-          </select>
+          <Select  value= "0" options={category}  />
         </label>
         </div>
-          <div className="form-group">
-            <label htmlFor="description">status:</label>
-            <input type="text" className="form-control" value={status} name="status" onChange={this.changeHandler}/>
-          </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
           </div>

@@ -8,11 +8,11 @@ class App extends Component {
     render () {
         return (
             <>
-             <RequestEdit/>
-             <Requests/>
+             
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='requests' element={<Requests />} />
+                <Route path='requests/new' element={<RequestEdit />} />
             </Routes>
             </>
         )

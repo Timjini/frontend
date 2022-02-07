@@ -8,6 +8,7 @@ import './Home.css'
 import Help1 from '../images/help1.jpg'
 import banner from '../images/art-banner.jpg'
 import Help2 from '../images/help2.jpg'
+import { Link } from 'react-router-dom';
 
 
 function Home () {
@@ -17,7 +18,7 @@ function Home () {
         < div className="main-info col-md-6 p-5">
             <h1> Aid Platfrom</h1>
            <br/>
-            <Button variant="warning mt-5 p-3" className='action-button'> Start Today</Button>            
+           <Link to='/requests'><Button variant="warning mt-5 p-3" className='action-button'> Start Today</Button> </Link>           
         </div>
 
     </div>

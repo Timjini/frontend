@@ -16,15 +16,19 @@ export default class Requests extends React.Component {
 
   render() {
     return (
+        <div className='container' style={{padding: "10rem"}}>
       <ul>
         {
           this.state.requests
             .map(request =>
-              <li >{request.id} | {request.description}</li>
+           
+              <li >{request.id} | {request.description} \ {request.address}</li>
+              
             )
         }
              
       </ul>
+      </div>
     )
   }
 }
