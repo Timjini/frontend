@@ -1,22 +1,30 @@
-import React from "react";
+import React from 'react';
+import axios from 'axios';
 
+export default class Request extends React.Component {
+  state = {
+    requests: []
+  }
 
-function Requests(props){
-    
-    return <div>
-        <h1>Requests from API</h1>
-        {props.requests.map((request) => {
-            return <div key={request.id}>
-                <h2>{request.address}</h2>
-                <h3> {request.category}</h3>
-                <h4> {request.status}</h4>
-                <p> {request.description}</p>
-                
-                
+  componentDidMount() {
+    axios.get(`http://mighty-tor-35081.herokuapp.com/api/v1/requests`)
+      .then(res => {
+        const requests = res.data;
+        this.setState({ requests });
+      })
+  }
 
-                </div>
-        } )}
-    </div>;
+  render() {
+    return (
+      <ul>
+        {
+          this.state.requests
+            .map(request =>
+              <li >{request.id} | {request.description}</li>
+            )
+        }
+             
+      </ul>
+    )
+  }
 }
-
-export default Requests;

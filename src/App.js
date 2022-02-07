@@ -1,38 +1,22 @@
-import './App.css';
-import axios from "axios";
-import Requests from './components/requests';
+import React, { Component } from 'react'
+import Home from './components/Home'
 import {Routes,Route} from 'react-router-dom'
-import { useEffect, useState } from 'react';
-import Home from './components/Home';
+import Requests from './components/Requests'
+import RequestEdit from './components/Requestedit'
 
-const API_URL ="https://mighty-tor-35081.herokuapp.com/api/v1/requests";
-
-function getAPIData() {
-  return axios.get(API_URL).then((response) => response.data)
+class App extends Component {
+    render () {
+        return (
+            <>
+             <RequestEdit/>
+             <Requests/>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='requests' element={<Requests />} />
+            </Routes>
+            </>
+        )
+    }
 }
 
-function App() {
-  const [requests, setRequests] = useState([]);
-
-  useEffect (() => {
-    let mounted = true;
-    getAPIData().then((items) => {
-      if (mounted) {
-        setRequests(items);
-      }
-  });
-  return () => (mounted = false);
-}, []);
-
-  return (
-    <>
-      
-      <Routes>
-           <Route path='/' element={<Home />} />
-      </Routes>
-      <Requests requests={requests} />
-      </>
-  );
-}
-
-export default App;
+export default App
