@@ -32,7 +32,7 @@ export default class Registration extends Component {
             password_confirmation,
         } = this.state;
         
-        axios.post("http://localhost:3002/registrations",
+        axios.post("https://shrouded-hollows-01022.herokuapp.com/registrations",
         {
         user: {
             username: username,
