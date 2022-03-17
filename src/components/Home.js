@@ -9,7 +9,7 @@ import Help1 from '../images/help1.jpg'
 import banner from '../images/art-banner.jpg'
 import Help2 from '../images/help2.jpg'
 import { Link } from 'react-router-dom';
-import Registration from './auth/Registration';
+import Login from "../auth/Login";
 
 
 function Home () {
@@ -23,7 +23,6 @@ function Home () {
         </div>
 
     </div>
-    <Registration />
     <section className='section-1'>
 
     <Container>
