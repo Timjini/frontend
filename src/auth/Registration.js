@@ -1,8 +1,36 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+//import Login from "../auth/Login";
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 
-export default class Registration extends Component {
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="#">
+        Aid.com
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const theme = createTheme();
+
+export default class Registration extends Component  {
   constructor(props) {
     super(props);
 
@@ -24,7 +52,7 @@ export default class Registration extends Component {
     } = this.state;
     axios
       .post(
-        "http://localhost:3001/register",
+        "http://localhost:3001/registrations",
         {
           user: {
             email: email,
@@ -52,54 +80,91 @@ export default class Registration extends Component {
     });
   }
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="password"
-              name="password_confirmation"
-              placeholder="Password Confirmation"
-              required
-              value={this.state.password_confirmation}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <button type="submit" className="btn btn-primary btn-sm">
-            Register
-          </button>
-          <p>
-            Have an account? <Link to="/">Login</Link>
-          </p>
-        </form>
-      </div>
-    );
-  }
+render () {
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" noValidate onSubmit={this.handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password_confirmation"
+                  label="Password confirmation"
+                  type="password"
+                  id="password_confirmation"
+                  autoComplete="new-password"
+                  value={this.state.password_confirmation}
+                  onChange={this.handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
+    </ThemeProvider>
+  )
+}
 }

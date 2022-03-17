@@ -16,8 +16,7 @@ export default class Loginpage extends Component {
   render() {
     return (
       <div>
-        <h1>Login Page</h1>
-        <h1>Status: {this.props.loggedInStatus}</h1>
+        <h1>{this.props.loggedInStatus}</h1>
         <Login
           handleSuccessfulAuth={this.handleSuccessfulAuth}
         />

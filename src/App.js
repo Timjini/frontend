@@ -4,13 +4,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Loginpage from "./components/Loginpage";
 import axios from "axios";
-//import "bootstrap/dist/css/bootstrap.min.css";
 import Registration from "./auth/Registration";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Requests from "./components/Requests";
 import Requestadd from "./components/Requestadd";
-import Demo from "./components/Demo";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default class App extends Component {
   constructor() {
@@ -88,9 +88,6 @@ export default class App extends Component {
                 />
               )}
             />
-             <Route
-              exact path={"/demo"}
-            > <Demo /> </Route>
             <Route
               exact
               path={"/"}

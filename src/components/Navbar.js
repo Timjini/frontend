@@ -1,8 +1,10 @@
-import Logo from '../images/logo-aid.png'
+//import Logo from '../images/logo-aid.png'
 import React, { useState, useEffect } from 'react';
 //import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -24,7 +26,8 @@ function Navbar() {
   }, []);
 
   window.addEventListener('resize', showButton);
-  //<img src={Logo} alt='website logo' className='logo'/>
+  //          <img src={Logo} alt='website logo' className='logo'/>
+
 
   return (
     <>
@@ -59,6 +62,11 @@ function Navbar() {
                 Projects
               </Link>
             </li>
+
+              <Badge badgeContent={4} color="primary">
+            <MailIcon color="action"  />
+            </Badge>
+
 
             <li>
               <Link
