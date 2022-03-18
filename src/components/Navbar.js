@@ -1,6 +1,5 @@
 //import Logo from '../images/logo-aid.png'
 import React, { useState, useEffect } from 'react';
-//import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Badge from '@mui/material/Badge';
@@ -8,7 +7,7 @@ import MailIcon from '@mui/icons-material/Mail';
 
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  const [/*button*/, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

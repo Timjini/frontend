@@ -8,8 +8,7 @@ import './Home.css';
 import Help1 from '../images/help1.jpg';
 import banner from '../images/art-banner.jpg';
 import Help2 from '../images/help2.jpg';
-import { Link } from 'react-router-dom';
-import Login from "../auth/Login";
+
 
 
 
